@@ -10,7 +10,6 @@ The most recent version of some information on how to perform common tasks can b
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
 - [Deployment](#deployment)
   - [Static Server](#static-server)
   - [Building for Relative Paths](#building-for-relative-paths)
