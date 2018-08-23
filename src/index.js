@@ -6,6 +6,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-	<BrowserRouter basename="/reactnd-project-myreads"><App /></BrowserRouter>,
-	document.getElementById('root'));
+	<BrowserRouter basename="/pr8-neighborhood-map"><App /></BrowserRouter>,
+	document.getElementById('root')
+);
+
 registerServiceWorker();
