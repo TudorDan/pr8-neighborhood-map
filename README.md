@@ -1,6 +1,7 @@
 # Project8-NeighborhoodMap
-This is an implementation of the last project of Udacity's Front End Developer Nanodegree Program
+
 ---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).<br>
 The most recent version of some information on how to perform common tasks can be found in the [associated guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
