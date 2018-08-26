@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import Finder from './Finder'
 
 class App extends Component {
   state = {
@@ -48,9 +49,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Venues in Bistrița, Romania</h1>
         </header>
+        <Finder venues={this.state.venues} bounds={this.state.bounds}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
