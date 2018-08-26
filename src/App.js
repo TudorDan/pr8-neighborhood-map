@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -31,12 +30,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Venues in Bistrița, Romania 
-            (recommended by <a href="https://foursquare.com/explore?ll=47.133194%2C24.500107&mode=url&near=Bistri%C5%A3a">Foursquare</a>)
-          </h1>
+          <h1 className="App-title">Venues in Bistrița, Romania</h1>
         </header>
-
       </div>
     );
   }
