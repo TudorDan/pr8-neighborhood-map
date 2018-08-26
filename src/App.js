@@ -3,7 +3,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    venues: []
+    venues: [],
+    bounds: {}
   }
 
   /* loads from Foursquare API */
@@ -17,13 +18,28 @@ class App extends Component {
     .then((data) => {
       if(data.ok) {
         return data.json()
+      } else {
+        console.log('Unable to retrieve online data.')
       }
     })
     .then((data) => {
-      const venues = data.response.groups[0].items
-      this.setState({venues})
+      if(data) {
+        this.setState({
+          bounds: data.response.suggestedBounds,
+          venues: data.response.groups[0].items.map((dv) => {
+            return {
+              id: dv.venue.id,
+              name: dv.venue.name,
+              location: {lat: dv.venue.location.lat, lng: dv.venue.location.lat},
+              type: dv.venue.categories[0].name,
+              icon: dv.venue.categories[0].icon ? (dv.venue.categories[0].icon.prefix + '32' + dv.venue.categories[0].icon.suffix) : 'https://via.placeholder.com/32x32.png?text=X',
+              adress: dv.venue.location.formattedAddress[0] ? dv.venue.location.formattedAddress[0] : 'Unspecified',
+            }
+          })
+        })
+      }
     })
-    /* errors handled in serviceWorker */
+    /* other errors handled in serviceWorker */
   }
 
   render() {
