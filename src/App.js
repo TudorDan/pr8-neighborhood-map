@@ -5,11 +5,12 @@ import Finder from './Finder'
 class App extends Component {
   state = {
     venues: [],
+    map: {},
     bounds: {}
   }
 
-  /* loads from Foursquare API */
-  componentDidMount() {
+    componentDidMount() {
+    /* get Foursquare data & simplifies it */
     fetch(
       'https://api.foursquare.com/v2/venues/explore?'+
       'client_id=5NB01HPQ1IKYMXI54ML15CTXA0DY0LKTYEM4X4XCRR1H2F4P&'+
@@ -40,7 +41,7 @@ class App extends Component {
         })
       }
     })
-    /* other errors handled in serviceWorker */
+    /* get google map */
   }
 
   render() {
@@ -49,7 +50,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Venues in Bistrița, Romania</h1>
         </header>
-        <Finder venues={this.state.venues} bounds={this.state.bounds}/>
+        <Finder venues={this.state.venues} bounds={this.state.bounds} map={this.state.map}/>
       </div>
     )
   }

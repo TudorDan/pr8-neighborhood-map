@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
+import List from './List'
 
 class Finder extends Component {
 	static propTypes = {
@@ -10,22 +11,26 @@ class Finder extends Component {
 
 	state = {
 		query: '',
+		selectedID: '' /*id of selected venue*/
 	}
 
 	updateQuery = (query) => {
-		this.setState({ query: query.trim() })
+		this.setState({ 
+			query: query.trim(),
+			selectedID: ''
+		})
 	}
 
 	render() {
 		const { venues, bounds } = this.props
-		const { query } = this.state
-		let displayedVenues
+		const { query, selectedID } = this.state
+		let foundVenues
 
 		if(query) {
 			const match = new RegExp(escapeRegExp(query), 'i')
-			displayedVenues = venues.filter(venue => (match.test(venue.name) || match.test(venue.type)))
+			foundVenues = venues.filter(venue => (match.test(venue.name) || match.test(venue.type)))
 		} else {
-			displayedVenues = venues
+			foundVenues = venues
 		}
 
 		return (
@@ -37,6 +42,7 @@ class Finder extends Component {
 					value={query}
 					onChange={(event) => this.updateQuery(event.target.value)}
 				/>
+				<List venues={foundVenues} selected={selectedID}/>
 			</div>
 		)
 	}
