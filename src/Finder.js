@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import List from './List'
+import MapComp from './MapComp'
 
 class Finder extends Component {
 	static propTypes = {
-		venues: PropTypes.array.isRequired,
-		bounds: PropTypes.object
+		venues: PropTypes.array.isRequired
 	}
 
 	state = {
@@ -22,7 +22,7 @@ class Finder extends Component {
 	}
 
 	render() {
-		const { venues, bounds } = this.props
+		const { venues } = this.props
 		const { query, selectedID } = this.state
 		let foundVenues
 
@@ -42,7 +42,18 @@ class Finder extends Component {
 					value={query}
 					onChange={(event) => this.updateQuery(event.target.value)}
 				/>
-				<List venues={foundVenues} selected={selectedID}/>
+				<List 
+					venues={foundVenues} 
+					selected={selectedID}
+				/>
+				<MapComp 
+					venues={foundVenues}
+					selected={selectedID}
+					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp&libraries=geometry,drawing,places"
+  					loadingElement={<div style={{ height: `100%` }} />}
+  					containerElement={<div style={{ height: `100vh` }} />}
+  					mapElement={<div style={{ height: `100%` }} />}
+				/>
 			</div>
 		)
 	}

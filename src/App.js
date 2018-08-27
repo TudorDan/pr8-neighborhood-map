@@ -4,12 +4,10 @@ import Finder from './Finder'
 
 class App extends Component {
   state = {
-    venues: [],
-    map: {},
-    bounds: {}
+    venues: []
   }
 
-    componentDidMount() {
+  componentDidMount() {
     /* get Foursquare data & simplifies it */
     fetch(
       'https://api.foursquare.com/v2/venues/explore?'+
@@ -27,7 +25,6 @@ class App extends Component {
     .then((data) => {
       if(data) {
         this.setState({
-          bounds: data.response.suggestedBounds,
           venues: data.response.groups[0].items.map((dv) => {
             return {
               id: dv.venue.id,
@@ -50,7 +47,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Venues in Bistrița, Romania</h1>
         </header>
-        <Finder venues={this.state.venues} bounds={this.state.bounds} map={this.state.map}/>
+        <Finder venues={this.state.venues}/>
       </div>
     )
   }
