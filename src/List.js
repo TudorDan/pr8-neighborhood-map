@@ -26,6 +26,7 @@ class List extends Component{
 							</li>
 						)})}
 					</ul>
+					<button className="toggle">{visible ? 'Hide list' : 'Show list'}</button>
 				</div>
 		)
 	}
