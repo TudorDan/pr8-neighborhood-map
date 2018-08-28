@@ -36,9 +36,9 @@ class Finder extends Component {
 		return (
 			<div className="finder">
 				<input
-					className='search-venues'
-					type='text'
-					placeholder='Search venues'
+					className="search-venues"
+					type="text"
+					placeholder="Search venues"
 					value={query}
 					onChange={(event) => this.updateQuery(event.target.value)}
 				/>
