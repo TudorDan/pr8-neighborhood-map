@@ -1,12 +1,15 @@
 .list-venues {
-	background-color: #5c5757;
+	z-index: 100;
+	overflow: auto;
+}
+
+.list-container , .list-venues {
 	width: 16em;
+	height: 100vh;
+	background-color: #5c5757;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 100;
-	overflow: auto;
-	height: 100vh;
 }
 
 .list-venues::-webkit-scrollbar {
@@ -46,4 +49,28 @@
 .venues-list li p {
 	margin: 0.2em 0 0 0;
 	color: #ffcccc;
+}
+
+.toggle {
+	background: none rgb(255, 255, 255);
+	border: 0px;
+	margin: 10px;
+	padding: 0px;
+	position: absolute;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 2px;
+	height: 40px;
+	width: 40px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+	overflow: hidden;
+	top: 0px;
+	left: 256px;
+	z-index: 100;
+}
+
+@media screen and (max-width: 359px) {
+	.toggle {
+		top: 50px;
+	}
 }

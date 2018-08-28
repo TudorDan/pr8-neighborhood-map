@@ -16,6 +16,8 @@ class List extends Component{
 		const { venues , selected } = this.props
 		const { visible } = this.state
 		return (
+			<div className="list-container">
+				<button className="toggle">{visible ? 'Hide list' : 'Show list'}</button>
 				<div className="list-venues">
 					<h2>Top venues</h2>
 					<ul className="venues-list">
@@ -26,8 +28,8 @@ class List extends Component{
 							</li>
 						)})}
 					</ul>
-					<button className="toggle">{visible ? 'Hide list' : 'Show list'}</button>
 				</div>
+			</div>
 		)
 	}
 }
