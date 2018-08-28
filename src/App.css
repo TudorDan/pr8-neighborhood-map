@@ -5,9 +5,10 @@
 }
 
 .App-header {
-  background-color: #222;
-  padding: 20px;
+  background-color: #363434;
+  padding: 1em 0 0.4em 0;
   color: white;
+  z-index: 200;
 }
 
 .App-header h1{
@@ -37,6 +38,6 @@
     font-size: 0.8em;
   }
   .App-header {
-    padding: 10px;
+    padding: 0.8em 0 0.3em 0;
   }
 }

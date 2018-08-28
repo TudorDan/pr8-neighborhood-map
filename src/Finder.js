@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import List from './List'
 import MapComp from './MapComp'
+import './Finder.css'
 
 class Finder extends Component {
 	static propTypes = {
@@ -35,17 +36,21 @@ class Finder extends Component {
 
 		return (
 			<div className="finder">
-				<input
-					className="search-venues"
-					type="text"
-					placeholder="Search venues"
-					value={query}
-					onChange={(event) => this.updateQuery(event.target.value)}
-				/>
-				<List 
-					venues={foundVenues} 
-					selected={selectedID}
-				/>
+				<div className="search-zone">
+					<input
+						className="search-field"
+						type="text"
+						placeholder="Search venues"
+						value={query}
+						onChange={(event) => this.updateQuery(event.target.value)}
+					/>
+				</div>
+				<div className="list-zone">
+					<List 
+						venues={foundVenues} 
+						selected={selectedID}
+					/>
+				</div>
 				<MapComp 
 					venues={foundVenues}
 					selected={selectedID}
