@@ -50,9 +50,9 @@ class Finder extends Component {
 					venues={foundVenues}
 					selected={selectedID}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp&libraries=geometry,drawing,places"
-  					loadingElement={<div style={{ height: `100%` }} />}
+  					loadingElement={<div style={{ height: `100vh` }} />}
   					containerElement={<div style={{ height: `100vh` }} />}
-  					mapElement={<div style={{ height: `100%` }} />}
+  					mapElement={<div style={{ height: `100vh` }} />}
 				/>
 			</div>
 		)
