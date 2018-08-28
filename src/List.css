@@ -9,6 +9,16 @@
 	height: 100vh;
 }
 
+.list-venues::-webkit-scrollbar {
+  width: 6px;
+  background-color: #6c6767;
+}
+
+.list-venues::-webkit-scrollbar-thumb {
+  background-color: #363434;
+  border-radius: 3px;
+}
+
 .list-venues h2 {
 	margin: 0.2em 0 0 0;
 	color: #efecec;
