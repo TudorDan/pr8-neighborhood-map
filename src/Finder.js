@@ -59,6 +59,7 @@ class Finder extends Component {
 				<MapComp 
 					venues={foundVenues}
 					selected={selectedID}
+					onSelection={this.updateSelected}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
 					loadingElement={<div style={{ height: `100vh` }} />}
 					containerElement={<div style={{ height: `100vh` }} />}
