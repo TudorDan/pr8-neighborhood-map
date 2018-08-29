@@ -11,7 +11,6 @@ export const getData = () => {
     .then(res => res.json())
     .then(data => { return {
       center: data.response.geocode.center,
-      bounds: data.response.geocode.geometry.bounds,
       venues: data.response.groups[0].items.map(item => { return {
         id: item.venue.id,
         name: item.venue.name,

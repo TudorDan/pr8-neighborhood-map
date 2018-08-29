@@ -9,7 +9,6 @@ class Finder extends Component {
 	static propTypes = {
 		venues: PropTypes.array.isRequired,
 		center: PropTypes.object.isRequired,
-		bounds: PropTypes.object.isRequired
 	}
 
 	state = {
@@ -29,7 +28,7 @@ class Finder extends Component {
 	}
 
 	render() {
-		const { venues , center , bounds } = this.props
+		const { venues , center } = this.props
 		const { query, selectedID } = this.state
 		let foundVenues
 
@@ -62,7 +61,6 @@ class Finder extends Component {
 					venues={foundVenues}
 					selected={selectedID}
 					center={center}
-					bounds={bounds}
 					onSelection={this.updateSelected}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
 					loadingElement={<div style={{ height: `100vh` }} />}

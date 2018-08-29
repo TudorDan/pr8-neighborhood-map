@@ -6,7 +6,6 @@ import * as foursquareAPI from './FoursquareAPI';
 class App extends Component {
   state = {
     center: {},
-    bounds: {},
     venues: []
   }
 
@@ -14,7 +13,6 @@ class App extends Component {
     foursquareAPI.getData().then(data => { 
       this.setState( {
         center: data.center,
-        bounds: data.bounds,
         venues: data.venues
       })
     })
@@ -26,10 +24,7 @@ class App extends Component {
         <h1 className="App-title">Venues in Bistrița, Romania</h1>
         <p>Data offered by <a href='https://foursquare.com/explore?near=Bistriţa'>Foursquare</a></p>
       </header>
-      { this.state.center.lat 
-        ? <Finder center={this.state.center} bounds={this.state.bounds} venues={this.state.venues}/>
-        : <div>Loading ...</div>
-      }
+      { this.state.center.lat ? <Finder center={this.state.center} venues={this.state.venues}/> : <div>Loading ...</div> }
     </div>
   )}
 }
