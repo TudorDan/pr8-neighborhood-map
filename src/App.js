@@ -26,7 +26,10 @@ class App extends Component {
         <h1 className="App-title">Venues in Bistrița, Romania</h1>
         <p>Data offered by <a href='https://foursquare.com/explore?near=Bistriţa'>Foursquare</a></p>
       </header>
-      <Finder center={this.state.center} bounds={this.state.bounds} venues={this.state.venues}/>
+      { this.state.center.lat 
+        ? <Finder center={this.state.center} bounds={this.state.bounds} venues={this.state.venues}/>
+        : <div>Loading ...</div>
+      }
     </div>
   )}
 }

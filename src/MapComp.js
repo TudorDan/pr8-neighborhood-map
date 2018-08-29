@@ -3,22 +3,29 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-map
 import PropTypes from 'prop-types'
 
 const MapComp = withScriptjs(withGoogleMap((props) => {
-	const { venues , selected , onSelection } = props
+	const { venues , center , bounds , selected , onSelection } = props
+	let bnd = new window.google.maps.LatLngBounds();
+	bnd.extend(bounds.ne);
+	bnd.extend(bounds.sw);
 	return <GoogleMap
-		defaultZoom={13}
-		defaultCenter={ {lat:47.13316 ,lng: 24.50011} }>
-		{venues.map(venue => <Marker
-			key={ venue.id }
-			position={ {lat:venue.location.lat ,lng: venue.location.lng} }
-			animation={ selected===venue.id ? window.google.maps.Animation.BOUNCE : window.google.maps.Animation.DROP }
-			onClick={ () => onSelection(venue.id) }
-		></Marker>)}
+		ref={map => map && map.fitBounds(bnd)}
+		defaultCenter={ center }
+		defaultZoom={14}
+		>
+			{venues.map(venue => <Marker
+				key={ venue.id }
+				position={ venue.location }
+				animation={ selected===venue.id && window.google.maps.Animation.BOUNCE }
+				onClick={ () => onSelection(venue.id) }
+			></Marker>)}
 	</GoogleMap>
 }))
 
 MapComp.PropTypes = {
 	venues: PropTypes.array.isRequired,
 	selected: PropTypes.string,
+	center: PropTypes.object.isRequired,
+	bounds: PropTypes.object.isRequired,
 	onSelection: PropTypes.func.isRequired
 }
 
