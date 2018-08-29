@@ -10,8 +10,9 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 - [Installation](#instalation)
   - [npm start](#npm-start)
   - [npm run build](#npm-run-build)
-- [Options]
-- [Be aware of ...]
+  - [Live app](#live-app)
+- [Options](#options)
+- [Be aware of ...](#be-aware-of)
 
 ## Instalation
 
@@ -32,10 +33,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment) for more information and customisation options.
 
+### Live app
+
+The app is available live at [https://tudordan.github.io/pr8-neighborhood-map/](https://tudordan.github.io/pr8-neighborhood-map/). 
+
 ## Options
 
 To see venues in your region edit the file *src/FoursquareAPI.js* and change the `PLACE` constant - put in your hometown name and see what happends.
 
-## Be aware of ...
+## Be aware of
 
 Due to quota restriction in Google Maps API the map will be fully visible on only ONE app load per day (!). On following loads the map will be partially hidden by a warnings, a popup message will appear (just close it) and some warning messages will pe printed to the console - ignore them.<br>The app will work even despite the ugly Google map.
