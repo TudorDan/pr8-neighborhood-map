@@ -1,4 +1,4 @@
-const
+export const
   PLACE = 'Bistrița',
   ENDPOINT = 'https://api.foursquare.com/v2/venues/explore?',
   ID = '5NB01HPQ1IKYMXI54ML15CTXA0DY0LKTYEM4X4XCRR1H2F4P',

@@ -34,6 +34,7 @@ class List extends Component{
 								aria-label={"Show adress of " + venue.name}
 								role="button"
 							>
+								<img src={venue.icon} alt={venue.type}></img>
 								<h3>{venue.name}</h3>
 								<p>{venue.type}</p>
 								{ selected===venue.id && <p><strong>Adress:</strong> {venue.adress} </p> }
