@@ -45,7 +45,7 @@ class Finder extends Component {
 					<input
 						className="search-field"
 						type="text"
-						placeholder="Search venues"
+						placeholder="Search venues by name or type"
 						value={query}
 						onChange={(event) => this.updateQuery(event.target.value)}
 					/>

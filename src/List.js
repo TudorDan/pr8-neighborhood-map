@@ -22,14 +22,21 @@ class List extends Component{
 		const { visible } = this.state
 		return (
 			<div className={'list-container' + (visible ? ' list-visible' : ' list-hidden')}>
-				<button className="toggle" onClick={ this.toggleList }>{visible ? 'Hide list' : 'Show list'}</button>
+				<button aria-label="Show/Hide the list of venues" className="toggle" onClick={ this.toggleList }>{visible ? 'Hide list' : 'Show list'}</button>
 				<div className="list-venues">
 					<h2>Top venues</h2>
-					<ul className="venues-list">
+					<ul className="venues-list" aria-label="List of venues">
 						{venues.map(venue => { return (
-							<li key={venue.id} onClick={() => onSelection(venue.id)} className={selected===venue.id ? 'selected' : 'unselected'}>
+							<li 
+								key={venue.id} 
+								onClick={() => onSelection(venue.id)} 
+								className={selected===venue.id ? 'selected' : 'unselected'}
+								aria-label={"Show adress of " + venue.name}
+								role="button"
+							>
 								<h3>{venue.name}</h3>
 								<p>{venue.type}</p>
+								{ selected===venue.id && <p><strong>Adress:</strong> {venue.adress} </p> }
 							</li>
 						)})}
 					</ul>

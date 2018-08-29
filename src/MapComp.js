@@ -1,5 +1,5 @@
 import React from 'react'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker , InfoWindow } from 'react-google-maps'
 import PropTypes from 'prop-types'
 
 const MapComp = withScriptjs(withGoogleMap((props) => {
@@ -13,7 +13,15 @@ const MapComp = withScriptjs(withGoogleMap((props) => {
 				position={ venue.location }
 				animation={ selected===venue.id ? window.google.maps.Animation.BOUNCE : window.google.maps.Animation.DROP }
 				onClick={ () => onSelection(venue.id) }
-			></Marker>)}
+			>	{selected===venue.id 
+				? <InfoWindow>
+						<div className="infodiv">
+							<h3>{venue.name}</h3>
+							<p><strong>Adress:</strong> {venue.adress} </p>
+						</div>
+					</InfoWindow>
+				: ''}
+			</Marker>)}
 	</GoogleMap>
 }))
 
