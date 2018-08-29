@@ -11,10 +11,11 @@ class App extends Component {
 
   componentWillMount() {
     foursquareAPI.getData().then(data => { 
+      if(data) {
       this.setState( {
         center: data.center,
         venues: data.venues
-      })
+      })}
     })
   }
 
@@ -24,7 +25,9 @@ class App extends Component {
         <h1 className="App-title">Venues in {foursquareAPI.PLACE}</h1>
         <p>Data offered by <a href='https://foursquare.com/explore?near=Bistriţa'>Foursquare</a></p>
       </header>
-      { this.state.center.lat ? <Finder center={this.state.center} venues={this.state.venues}/> : <div>Loading ...</div> }
+      { this.state.center.lat 
+        ? <Finder center={this.state.center} venues={this.state.venues}/> 
+        : <div className="error">No data available yet online or on-device. Please check your Internet connection and try again later.</div> }
     </div>
   )}
 }
