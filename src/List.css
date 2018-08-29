@@ -8,8 +8,15 @@
 	height: 100vh;
 	background-color: #5c5757;
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 0px;
+}
+
+.list-visible {
+	left: 0px;
+}
+
+.list-hidden {
+	left: -16em;
 }
 
 .list-venues::-webkit-scrollbar {

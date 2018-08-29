@@ -12,12 +12,16 @@ class List extends Component{
 		visible: true
 	}
 
+	toggleList = () => {
+		this.setState({ visible: !this.state.visible })
+	}
+
 	render() {
 		const { venues , selected } = this.props
 		const { visible } = this.state
 		return (
-			<div className="list-container">
-				<button className="toggle">{visible ? 'Hide list' : 'Show list'}</button>
+			<div className={'list-container' + (visible ? ' list-visible' : ' list-hidden')}>
+				<button className="toggle" onClick={ this.toggleList }>{visible ? 'Hide list' : 'Show list'}</button>
 				<div className="list-venues">
 					<h2>Top venues</h2>
 					<ul className="venues-list">
