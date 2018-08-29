@@ -27,7 +27,7 @@ class List extends Component{
 					<h2>Top venues</h2>
 					<ul className="venues-list">
 						{venues.map(venue => { return (
-							<li key={venue.id} onClick={() => onSelection(venue.id)}>
+							<li key={venue.id} onClick={() => onSelection(venue.id)} className={selected===venue.id ? 'selected' : 'unselected'}>
 								<h3>{venue.name}</h3>
 								<p>{venue.type}</p>
 							</li>

@@ -45,17 +45,38 @@
 	padding: 0.3em;
 	border-radius: 0.3em;
 	margin: 0.2em 0;
-	background-color: #42727a;
 }
 
 .venues-list li h3 {
 	margin: 0;
-	color: #ffffdd;
 }
 
 .venues-list li p {
 	margin: 0.2em 0 0 0;
+}
+
+.unselected {
+	background-color: #42727a;
+}
+
+.selected {
+	background-color: #ffffdd;
+}
+
+.unselected h3 {
+	color: #ffffdd;
+}
+
+.selected h3 {
+	color: #363434;
+}
+
+.unselected p {
 	color: #ffcccc;
+}
+
+.selected p {
+	color: #5c5757;
 }
 
 .toggle {
