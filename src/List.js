@@ -5,7 +5,8 @@ import './List.css'
 class List extends Component{
 	static propTypes = {
 		venues: PropTypes.array.isRequired,
-		selected: PropTypes.string
+		selected: PropTypes.string,
+		onSelection: PropTypes.func.isRequired
 	}
 
 	state = {
@@ -17,7 +18,7 @@ class List extends Component{
 	}
 
 	render() {
-		const { venues , selected } = this.props
+		const { venues , selected , onSelection } = this.props
 		const { visible } = this.state
 		return (
 			<div className={'list-container' + (visible ? ' list-visible' : ' list-hidden')}>
@@ -26,7 +27,7 @@ class List extends Component{
 					<h2>Top venues</h2>
 					<ul className="venues-list">
 						{venues.map(venue => { return (
-							<li key={venue.id}>
+							<li key={venue.id} onClick={() => onSelection(venue.id)}>
 								<h3>{venue.name}</h3>
 								<p>{venue.type}</p>
 							</li>

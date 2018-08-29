@@ -22,6 +22,10 @@ class Finder extends Component {
 		})
 	}
 
+	updateSelected = (id) => {
+		this.setState({ selectedID: id===this.state.selectedID ? '' : id })
+	}
+
 	render() {
 		const { venues } = this.props
 		const { query, selectedID } = this.state
@@ -49,15 +53,16 @@ class Finder extends Component {
 					<List 
 						venues={foundVenues} 
 						selected={selectedID}
+						onSelection={this.updateSelected}
 					/>
 				</div>
 				<MapComp 
 					venues={foundVenues}
 					selected={selectedID}
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
-  					loadingElement={<div style={{ height: `100vh` }} />}
-  					containerElement={<div style={{ height: `100vh` }} />}
-  					mapElement={<div style={{ height: `100vh` }} />}
+					loadingElement={<div style={{ height: `100vh` }} />}
+					containerElement={<div style={{ height: `100vh` }} />}
+					mapElement={<div style={{ height: `100vh` }} />}
 				/>
 			</div>
 		)
