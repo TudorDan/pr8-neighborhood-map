@@ -30,7 +30,7 @@ class App extends Component {
       {/* Displays Finder comp if data is available or custom error UI if not */}
       { this.state.center.lat 
         ? <Finder center={this.state.center} venues={this.state.venues}/> 
-        : <div className="error">No data available yet online or on-device. Please check your Internet connection and try again later.</div> }
+        : <div className="error">No data available yet online or on-device. Please be patient or check your Internet connection and try again later.</div> }
     </div>
   )}
 }
