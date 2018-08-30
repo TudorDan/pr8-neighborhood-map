@@ -66,6 +66,7 @@ class Finder extends Component {
 						className="search-field"
 						type="text"
 						placeholder="Search venues by name or type"
+						aria-label="Search venues by name or type"
 						value={query}
 						onChange={(event) => this.updateQuery(event.target.value)}
 					/>
