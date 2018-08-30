@@ -13,8 +13,16 @@ class Finder extends Component {
 
 	state = {
 		query: '',
-		selectedID: '' /*id of selected venue*/
+		selectedID: '',
+		hasError: false
 	}
+
+  componentDidCatch(error, info) {
+  	console.clear()
+  	console.log(error)
+  	console.log('Additional info:' + info.componentStack)
+    this.setState({ hasError: true });
+  }
 
 	updateQuery = (query) => {
 		this.setState({ 
@@ -29,7 +37,8 @@ class Finder extends Component {
 
 	render() {
 		const { venues , center } = this.props
-		const { query, selectedID } = this.state
+		const { query, selectedID , hasError } = this.state
+		
 		let foundVenues
 
 		if(query) {
@@ -57,16 +66,21 @@ class Finder extends Component {
 						onSelection={this.updateSelected}
 					/>
 				</div>
-				<MapComp 
-					venues={foundVenues}
-					selected={selectedID}
-					center={center}
-					onSelection={this.updateSelected}
-					googleMapURL="https://maps.googleapis.com/mas/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
-					loadingElement={<div style={{ height: `100vh` }} id="mapLoading"/>}
-					containerElement={<div style={{ height: `100vh` }} id="mapContainer" />}
-					mapElement={<div style={{ height: `100vh` }} id="mapElement"/>}
-				/>
+				{	!hasError ? <MapComp 
+						venues={foundVenues}
+						selected={selectedID}
+						center={center}
+						onSelection={this.updateSelected}
+						googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
+						loadingElement={<div style={{ height: `100vh` }} id="mapLoading"/>}
+						containerElement={<div style={{ height: `100vh` }} id="mapContainer" />}
+						mapElement={<div style={{ height: `100vh` }} id="mapElement"/>}
+					/> : <div className="error"> 
+						Google Maps API is not available (network error). Please 
+						check <a href="https://kb.mailster.co/how-can-i-open-the-browsers-console/">the console</a> and 
+						contact	<a href="https://github.com/TudorDan">the app admin</a>.
+					</div>
+				}
 			</div>
 		)
 	}

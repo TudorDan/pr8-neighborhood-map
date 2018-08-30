@@ -7,7 +7,7 @@ window.gm_authFailure = () => {
 		`<div class="error"> 
 			Google Maps API is not available (authentication error). Please check  
 			<a href="https://kb.mailster.co/how-can-i-open-the-browsers-console/">the console</a> and contact 
-			<a href="https://github.com/TudorDan">the app admin</a></div>`
+			<a href="https://github.com/TudorDan">the app admin</a>.</div>`
 }
 
 const MapComp = withScriptjs(withGoogleMap((props) => {
