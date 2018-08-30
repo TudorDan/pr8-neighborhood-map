@@ -55,6 +55,6 @@ To see venues in your region edit the *src/FoursquareAPI.js* file and change the
 
 ## Be aware of
 
-Due to quota restriction in Google Maps API the map will be fully visible on only ONE app load per day. On following loads the map will be partially hidden by a warnings, a popup message will appear (just close it) and some warning messages will pe printed to the console. The app will work even if the map is not fully visible. To change this you will have to [get your own API key and set billing options]().
+Due to quota restriction in Google Maps API the map will be fully visible on only ONE app load per day. On following loads the map will be partially hidden by a warnings, a popup message will appear (just close it) and some warning messages will be printed to the console. The app will work even if the map is not fully visible. To change this you will have to [get your own API key and set billing options](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 The key must be then inserted in the *src/Finder.js* file, line 74 - the key part of `googleMapURL`, replacing my key.
