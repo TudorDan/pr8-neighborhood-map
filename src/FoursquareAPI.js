@@ -1,3 +1,9 @@
+/*
+* Connects to Foursquare 'explore' data endpoint
+* and downloads top venues data near Bistrița, Romania
+* retaining only relevant data for the app.
+*/
+
 export const
   PLACE = 'Bistrița',
   ENDPOINT = 'https://api.foursquare.com/v2/venues/explore?',

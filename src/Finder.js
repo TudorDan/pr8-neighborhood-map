@@ -1,3 +1,8 @@
+/*
+* Selects venues by name or type and sends them to the List and MapComp components
+* Manages communication of selected venue id between List an MapComp components
+*/
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
@@ -12,11 +17,12 @@ class Finder extends Component {
 	}
 
 	state = {
-		query: '',
-		selectedID: '',
-		hasError: false
+		query: '',  		/* search string */
+		selectedID: '', /* id of selected venue */
+		hasError: false /* true if MapComp throws any error */
 	}
 
+	/* Sets Finder as a error boundary and logs catced errors */
   componentDidCatch(error, info) {
   	console.clear()
   	console.log(error)
@@ -24,6 +30,7 @@ class Finder extends Component {
     this.setState({ hasError: true });
   }
 
+  /* Updates search string */
 	updateQuery = (query) => {
 		this.setState({ 
 			query: query.trim(),
@@ -31,6 +38,7 @@ class Finder extends Component {
 		})
 	}
 
+	/* Updates id of selected venue */
 	updateSelected = (id) => {
 		this.setState({ selectedID: id===this.state.selectedID ? '' : id })
 	}
@@ -41,6 +49,7 @@ class Finder extends Component {
 		
 		let foundVenues
 
+		/* Filters venues based on search string, by name or type */
 		if(query) {
 			const match = new RegExp(escapeRegExp(query), 'i')
 			foundVenues = venues.filter(venue => (match.test(venue.name) || match.test(venue.type)))
@@ -50,6 +59,8 @@ class Finder extends Component {
 
 		return (
 			<div className="finder">
+
+				{/* Search field */}
 				<div className="search-zone">
 					<input
 						className="search-field"
@@ -59,6 +70,8 @@ class Finder extends Component {
 						onChange={(event) => this.updateQuery(event.target.value)}
 					/>
 				</div>
+
+				{/* List of found venues */}
 				<div className="list-zone">
 					<List 
 						venues={foundVenues} 
@@ -66,6 +79,8 @@ class Finder extends Component {
 						onSelection={this.updateSelected}
 					/>
 				</div>
+
+				{/* Map of venues or custon error UI if there are problems connecting to Google Maps API */}
 				{	!hasError ? <MapComp 
 						venues={foundVenues}
 						selected={selectedID}

@@ -1,3 +1,7 @@
+/*
+* Venue list
+*/
+
 .list-venues {
 	z-index: 100;
 	overflow: auto;
@@ -57,6 +61,11 @@
 	margin: 0.2em 0 0 0;
 }
 
+
+/*
+* Selected / unselected venue
+*/
+
 .unselected {
 	background-color: #42727a;
 }
@@ -81,6 +90,11 @@
 	color: #5c5757;
 }
 
+
+/*
+* Toggle button - shows / hides venue list
+*/
+
 .toggle {
 	background: none rgb(255, 200, 200);
 	border: 0px;
@@ -98,6 +112,11 @@
 	left: 256px;
 	z-index: 100;
 }
+
+
+/*
+* Venue type icon
+*/
 
 .venues-list li img {
 	background-color: rgba(0, 0, 0, 0.5);
