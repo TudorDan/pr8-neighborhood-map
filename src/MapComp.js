@@ -23,7 +23,7 @@ const MapComp = withScriptjs(withGoogleMap((props) => {
 					onClick={ () => onSelection(venue.id) }
 				>	{selected===venue.id 
 					? <InfoWindow>
-							<div className="infodiv">
+							<div className="infodiv" tabIndex="0">
 								<h3>{venue.name}</h3>
 								<p><strong>Adress:</strong> {venue.adress} </p>
 							</div>
