@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 
 window.gm_authFailure = () => {
 	document.getElementById('mapElement').innerHTML = 
-		`<div class="error" style="padding-left:256px;"> 
-			Unable to authenticate Google Maps API access. Please check  
+		`<div class="error"> 
+			Google Maps API is not available (authentication error). Please check  
 			<a href="https://kb.mailster.co/how-can-i-open-the-browsers-console/">the console</a> and contact 
 			<a href="https://github.com/TudorDan">the app admin</a></div>`
 }

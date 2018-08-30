@@ -62,7 +62,7 @@ class Finder extends Component {
 					selected={selectedID}
 					center={center}
 					onSelection={this.updateSelected}
-					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6a&v=3.exp"
+					googleMapURL="https://maps.googleapis.com/mas/api/js?key=AIzaSyBT-eboO6ZtfUG6q-eTsNw3VM3pZvoQi6g&v=3.exp"
 					loadingElement={<div style={{ height: `100vh` }} id="mapLoading"/>}
 					containerElement={<div style={{ height: `100vh` }} id="mapContainer" />}
 					mapElement={<div style={{ height: `100vh` }} id="mapElement"/>}
