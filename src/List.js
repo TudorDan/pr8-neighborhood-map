@@ -17,6 +17,12 @@ class List extends Component{
 		this.setState({ visible: !this.state.visible })
 	}
 
+	onEnter = (id, event) => {
+		if(event.key === 'Enter') {
+			this.props.onSelection(id)
+		}
+	}
+
 	render() {
 		const { venues , selected , onSelection } = this.props
 		const { visible } = this.state
@@ -33,7 +39,8 @@ class List extends Component{
 						{venues.map(venue => { return (
 							<li 
 								key={venue.id} 
-								onClick={() => onSelection(venue.id)} 
+								onClick={() => onSelection(venue.id)}
+								onKeyPress={(e) => this.onEnter(venue.id, e)}
 								className={selected===venue.id ? 'selected' : 'unselected'}
 								aria-label={"Show or hide adress of " + venue.name}
 								role="button"
